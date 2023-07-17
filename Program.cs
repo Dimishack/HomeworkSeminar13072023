@@ -16,14 +16,39 @@ namespace HomeworkSeminar13072023
 
             try
             {
-                Console.WriteLine("Задача №47");
-                Task47.TwoDimensionalArray();
-                WaitUser();
-                Console.WriteLine("Задача №50");
-                Task50.GetValue();
-                WaitUser();
-                Console.WriteLine("Задача №52");
-                Task52.AverageOfColumn();
+                ConsoleKey key;
+                Console.WriteLine("Добро пожаловать в программу с выполненными задачами №47, 50 и 52");
+                do
+                {
+                    Console.WriteLine("Выберите номер из списка с задачами, к которому Вы хотите перейти " +
+                        "\n(для выхода из программы нажмите <Enter>)");
+                    Console.WriteLine("1) Задача №47 \n2) Задача №50 \n3) Задача №52");
+                    key = Console.ReadKey(false).Key;
+                    Console.WriteLine();
+                    switch (key)
+                    {
+                        case ConsoleKey.Enter:
+                            break;
+                        case ConsoleKey.NumPad1:
+                        case ConsoleKey.D1:
+                            Task47.TwoDimensionalArray();
+                            WaitUser();
+                            break;
+                        case ConsoleKey.NumPad2:
+                        case ConsoleKey.D2:
+                            Task50.GetValue();
+                            WaitUser();
+                            break;
+                        case ConsoleKey.NumPad3:
+                        case ConsoleKey.D3:
+                            Task52.AverageOfColumn();
+                            WaitUser();
+                            break;
+                        default:
+                            Console.WriteLine("Ошибка: Данного номера с задачей нет! Выберите другой.");
+                            break;
+                    }
+                } while (key != ConsoleKey.Enter);                
             }
             catch (Exception ex)
             {
@@ -38,7 +63,7 @@ namespace HomeworkSeminar13072023
         }
         private static void WaitUser()
         {
-            Console.WriteLine("\nНажмите любую клавишу для перехода к следующей задаче...");
+            Console.WriteLine("\nНажмите любую клавишу для перехода обратно в меню...");
             Console.ReadKey(true);
             Console.Clear();
         }
